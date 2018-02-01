@@ -31,10 +31,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
     switch(keycode) {
     case M_MAC:
-      SEND_STRING(SS_TAP(X_SCROLLLOCK));
+      SEND_STRING(SS_TAP(X_SCROLLLOCK) SS_TAP(X_SCROLLLOCK));
       return false; break;
       //case M_WIN:
-      //SEND_STRING(SS_TAP(X_SLCK) SS_TAP(X_SLCK), TG(_MBL));
+      //SEND_STRING(SS_TAP(X_SCROLLLOCK) SS_TAP(X_SCROLLLOCK), TG(_MBL));
       //return false; break;
     }
   }
