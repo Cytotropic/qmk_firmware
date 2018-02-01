@@ -3,9 +3,6 @@
 // LAYERZ
 #define _MBL 0 // Mac Base Layer (_MBL)
 #define _WFL 1 // Windows Function Layer (_WFL)
-#define _______ KC_TRNS
-#define M_MAC M(0)
-#define M_WIN M(1)
 
 // Tap Dance declarations
 enum {
@@ -22,6 +19,29 @@ enum {
   TD_F11,
   TD_F12
 };
+
+// Macros
+enum custom_keycodes {
+  M_MAC = SAFE_RANGE,
+  M_WIN
+};
+
+// Macro rules
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (record->event.pressed) {
+    switch(keycode) {
+    case M_MAC:
+      SEND_STRING(SS_TAP(X_SCROLLLOCK));
+      return false; break;
+      //case M_WIN:
+      //SEND_STRING(SS_TAP(X_SLCK) SS_TAP(X_SLCK), TG(_MBL));
+      //return false; break;
+    }
+  }
+  return true;
+
+};
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Keymap _MBL: (Mac Base Layer) Default Layer
@@ -44,26 +64,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_LSFT,            KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,   KC_UP,   KC_PGDN, \
   KC_LCTL, KC_LALT, KC_LGUI,                         KC_SPC,                                   KC_RGUI, M_MAC  ,KC_RALT,   KC_LEFT, KC_DOWN,  KC_RGHT),
 
-  
-// Mac Macros
-
-const macro_t *action_get_macro(keyrecord_t *record, unit8t id, uint8_t opt) {
-  if (record->event.pressed) {
-    switch(id) {
-
-    case 0:
-         return MACRO(T(KC_SCROLLLOCK), W(1), T(KC_SCROLLLOCK), W(1), TG(_WFL), END);
-    }
-
-
-    }
-  return MACRO_NONE;
-
-};
-
-
-
-
 
   /* Keymap _WFL: (Windows Function Layer) 
    * ,----------------------------------------------------------------.
@@ -84,7 +84,7 @@ const macro_t *action_get_macro(keyrecord_t *record, unit8t id, uint8_t opt) {
   KC_TAB,    KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,   KC_RBRC,  KC_BSLS, KC_DEL, \
   KC_CAPS,   KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,             KC_ENT,  KC_PGUP,\
   KC_LSFT,           KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,  KC_SLSH,      KC_RSFT,  KC_UP,   KC_PGDN,\
-  KC_LGUI,   KC_LALT,  KC_LCTL,                        KC_SPC,                          KC_RCTL, TG(_MBL),   KC_RALT,       KC_LEFT, KC_DOWN, KC_RGHT),
+  KC_LGUI,   KC_LALT,  KC_LCTL,                        KC_SPC,                          KC_RCTL, M_WIN   ,   KC_RALT,       KC_LEFT, KC_DOWN, KC_RGHT),
 };
 
 // Tapdance definitions                                                                                                                               
@@ -102,3 +102,25 @@ qk_tap_dance_action_t tap_dance_actions[] = {
   [TD_F11] = ACTION_TAP_DANCE_DOUBLE(KC_MINS, KC_F11),
   [TD_F12] = ACTION_TAP_DANCE_DOUBLE(KC_EQL, KC_F12),
 };
+
+/*  
+// Macros
+
+const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
+  if (record->event.pressed) {
+    switch(id) {
+
+    case 0:
+         return MACRO(T(SLCK), W(1), T(SLCK), W(1), TG(_WFL), END);
+
+    case 1:
+         return MACRO(T(SLCK), W(1), T(SLCK), W(1), TG(_MBL), END);
+
+    }
+
+
+    }
+  return MACRO_NONE;
+
+};
+*/
