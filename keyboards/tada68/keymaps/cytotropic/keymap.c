@@ -1,5 +1,16 @@
 #include "tada68.h"
 
+/* DO TO LIST
+- Mac Media keys
+- Mac Brightness keys
+- Win Media keys
+- Reset key
+- grave esc
+- backlight changes?
+
+ */
+
+
 // LAYERZ
 #define _MBL 0 // Mac Base Layer (_MBL)
 #define _WFL 1 // Windows Function Layer (_WFL)
