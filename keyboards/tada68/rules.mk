@@ -65,3 +65,9 @@ AUDIO_ENABLE = no
 UNICODE_ENABLE = no 		# Unicode
 BLUETOOTH_ENABLE = no # Enable Bluetooth with the Adafruit EZ-Key HID
 TAP_DANCE_ENABLE = yes
+
+# Bootloader
+#     This definition is optional, and if your keyboard supports multiple bootloaders of
+#     different sizes, comment this out, and the correct address will be loaded
+#     automatically (+60). See bootloader.mk for all options.
+BOOTLOADER = atmel-dfu
