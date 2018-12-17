@@ -59,42 +59,42 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,----------------------------------------------------------------.
    * |~ ` | 1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|Backsp |Esc |
    * |----------------------------------------------------------------|
-   * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]|  \  |Del |
+   * |(3,Tab)|  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]| \ |Del |
    * |----------------------------------------------------------------|
-   * |2,CAPS |  A|  S|  D|  F|  G|  H|  J|  K|  L|  ;| '|Return|TG(FL)|
+   * |CTL(ESC)|  A|  S|  D|  F|  G|  H|  J|  K|  L|  ;| '|ENT  |TG(FL)|
    * |----------------------------------------------------------------|
    * |LSPO    |  Z|  X|  C|  V|  B|  N|  M|  ,|  .| /|RSPC |Up|TG(WFL)|
    * |----------------------------------------------------------------|
-   * |Ctrl|Alt|Ctrl |        Space         |Ctrl|M_WIN|Win|Lef|Dow|Rig|
+   * |CTL(CAPS)|Alt|Ctrl |     Space       |Ctrl|_____|Win|Lef|Dow|Rig|
    * `----------------------------------------------------------------'
    */
 
 [_WBL] = KEYMAP_ANSI(
   KC_GRV, KC_1 , KC_2 , KC_3 ,  KC_4 , KC_5 , KC_6 , KC_7 , KC_8 , KC_9 , KC_0 , KC_MINS , KC_EQL , KC_BSPC,KC_ESC,\
-  KC_TAB,   KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,   KC_O,    KC_P,     KC_LBRC,   KC_RBRC, KC_BSLS, KC_DEL, \
-  LT(3,KC_CAPS), KC_A,  KC_S,   KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   KC_K,   KC_L,   KC_SCLN,  KC_QUOT,     KC_ENT     ,  _______, \
+  LT(3,KC_TAB),   KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,   KC_O,    KC_P,     KC_LBRC,   KC_RBRC, KC_BSLS, KC_DEL, \
+  LCTL_T(KC_ESC), KC_A,  KC_S,   KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   KC_K,   KC_L,   KC_SCLN,  KC_QUOT,     KC_ENT     ,  _______, \
   KC_LSPO,    KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,      KC_COMM,  KC_DOT,  KC_SLSH,      KC_RSPC,  KC_UP,   _______, \
-  KC_LCTL,   KC_LALT,  KC_LCTL,             KC_SPC,                   KC_RCTL, M_WIN   ,   KC_RGUI,       KC_LEFT, KC_DOWN, KC_RGHT),
+  LCTL_T(KC_CAPS),   KC_LALT,  KC_LCTL,             KC_SPC,                   KC_RCTL, _______   ,   KC_RGUI,       KC_LEFT, KC_DOWN, KC_RGHT),
 
   /* Keymap _MFL: (Mac Functional Layer)
    * ,----------------------------------------------------------------.
    * |~ ` | 1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|Backsp |Esc |
    * |----------------------------------------------------------------|
-   * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]|  \  |Del |
+   * |(3,Tab)|  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]| \ |Del |
    * |----------------------------------------------------------------|
-   * |2,CAPS |  A|  S|  D|  F|  G|  H|  J|  K|  L|  ;| '|Return|TG(FL)|
+   * |CTL(ESC) |  A|  S|  D|  F|  G|  H|  J|  K|  L|  ;| '|ENT |TG(FL)|
    * |----------------------------------------------------------------|
    * |LSPO    |  Z|  X|  C|  V|  B|  N|  M|  ,|  .| /|RSPC |Up|TG(WFL)|
    * |----------------------------------------------------------------|
-   * |Ctrl|Alt |CMD |        Space         |CMD|M_Mac|Alt|Lef|Dow|Rig |
+   * |CTL(CAPS)|Alt |CMD |     Space       |CMD|_____|Alt|Lef|Dow|Rig |
    * `----------------------------------------------------------------'
    */
 [_MFL] = KEYMAP_ANSI(
   KC_GRV, KC_1 , KC_2 , KC_3 , KC_4 , KC_5 , KC_6 , KC_7 , KC_8 , KC_9 , KC_0 , KC_MINS , KC_EQL , KC_BSPC,KC_ESC,\
-  KC_TAB,   KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,    KC_LBRC,  KC_RBRC,  KC_BSLS,  KC_DEL,  \
-  LT(3,KC_CAPS), KC_A, KC_S, KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   KC_K,   KC_L,   KC_SCLN,      KC_QUOT,       KC_ENT,  TG(3),   \
+  LT(3,KC_TAB),   KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,   KC_O,   KC_P,    KC_LBRC,  KC_RBRC,  KC_BSLS,  KC_DEL,  \
+  LCTL_T(KC_ESC), KC_A, KC_S, KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   KC_K,   KC_L,   KC_SCLN,      KC_QUOT,       KC_ENT,  TG(3),   \
   KC_LSPO,    KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,      KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSPC,   KC_UP,   TG(1)  , \
-  KC_LCTL, KC_LALT, KC_LGUI,               KC_SPC,                          KC_RGUI, M_MAC  ,KC_RCTL,   KC_LEFT, KC_DOWN,  KC_RGHT),
+  LCTL_T(KC_CAPS), KC_LALT, KC_LGUI,               KC_SPC,                          KC_RGUI, _______  ,KC_RCTL,   KC_LEFT, KC_DOWN,  KC_RGHT),
  
   /* Keymap _FL: (Functional Key Layer) 
    * ,----------------------------------------------------------------------.
@@ -112,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_FL] = KEYMAP_ANSI(
  KC_F20 , KC_F1 ,KC_F2 , KC_F3 , KC_F4 , KC_F5 , KC_F6 , KC_F7 , KC_F8 , KC_F9 , KC_F10 , KC_F11 , KC_F12 , _______, RESET,\
- _______, _______,_______,_______,_______,_______,_______,KC_UNDS, KC_EQL,_______,KC_MPLY,KC_MNXT,KC_MPRV, _______,_______, \
+ _______, _______,_______,_______,_______,_______,_______,KC_UNDS, KC_EQL,_______,KC_MPLY,KC_MPRV,KC_MNXT, _______,_______, \
  _______,  _______,_______,_______,_______,_______,_______,KC_LBRC, KC_RBRC, LSFT(KC_LBRC) , LSFT(KC_RBRC),_______, KC_PSCR,_______, \
  _______,   _______,_______,_______,_______,_______, _______, KC_MUTE,KC_VOLD,KC_VOLU,  _______,_______, KC_MS_U, _______, \
  _______,_______,_______,                 TO(2),               _______, _______, KC_BTN1,   KC_MS_L,   KC_MS_D,  KC_MS_R),
@@ -141,8 +141,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   };
 
 // Tapdance definitionz
-qk_tap_dance_action_t tap_dance_actions[] = {
-  [TDW_1] = ACTION_TAP_DANCE_DOUBLE(KC_GRV, KC_F20),
+
+//qk_tap_dance_action_t tap_dance_actions[] = {
+  //[TDW_1] = ACTION_TAP_DANCE_DOUBLE(KC_GRV, KC_F20),
   //[TDW_2] = ACTION_TAP_DANCE_DOUBLE(KC_2, KC_2),
   //[TDW_3] = ACTION_TAP_DANCE_DOUBLE(KC_3, KC_3),
   //[TDW_4] = ACTION_TAP_DANCE_DOUBLE(KC_4, KC_4),
@@ -154,4 +155,4 @@ qk_tap_dance_action_t tap_dance_actions[] = {
   //[TDW_10] = ACTION_TAP_DANCE_DOUBLE(KC_0, KC_MUTE),
   //[TDW_11] = ACTION_TAP_DANCE_DOUBLE(KC_MINS, KC_VOLD),
   //[TDW_12] = ACTION_TAP_DANCE_DOUBLE(KC_EQL, KC_VOLU),
-}; 
+//}; 
